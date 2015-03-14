@@ -1,0 +1,41 @@
+{
+  "name": "generator-nm",
+  "version": "0.0.0",
+  "description": "Scaffold out a node module",
+  "license": "MIT",
+  "repository": "sindresorhus/generator-nm",
+  "author": {
+    "name": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "plugin",
+    "boilerplate",
+    "template",
+    "scaffold",
+    "node",
+    "module",
+    "node_module",
+    "node-module"
+  ],
+  "dependencies": {
+    "humanize-url": "^1.0.1",
+    "normalize-url": "^1.2.0",
+    "superb": "^1.1.3",
+    "yeoman-generator": "^0.18.10"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
