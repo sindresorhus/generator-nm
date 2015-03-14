@@ -48,8 +48,8 @@ module.exports = yeoman.generators.Base.extend({
 			this.template('.jshintrc');
 			this.template('.travis.yml');
 			this.template('index.js');
-			// needed so npm doesn't try to use it and fail
 			this.template('license');
+			// needed so npm doesn't try to use it and fail
 			this.template('_package.json', 'package.json');
 			this.template('readme.md');
 			this.template('test.js');
