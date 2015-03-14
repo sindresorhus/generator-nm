@@ -51,7 +51,7 @@ module.exports = yeoman.generators.Base.extend({
 			// needed so npm doesn't try to use it and fail
 			this.template('license');
 			this.template('_package.json', 'package.json');
-			this.template('readme.md');
+			this.template('_readme.md', 'readme.md');
 			this.template('test.js');
 
 			cb();
