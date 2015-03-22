@@ -20,12 +20,14 @@ module.exports = yeoman.generators.Base.extend({
 		}, {
 			name: 'githubUsername',
 			message: 'What is your GitHub username?',
+			store: true,
 			validate: function (val) {
 				return val.length > 0 ? true : 'You have to provide a username';
 			}
 		}, {
 			name: 'website',
 			message: 'What is the URL of your website?',
+			store: true,
 			validate: function (val) {
 				return val.length > 0 ? true : 'You have to provide a website URL';
 			},
