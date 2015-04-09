@@ -1,6 +1,4 @@
 'use strict';
-var path = require('path');
-var fs = require('fs');
 var superb = require('superb');
 var normalizeUrl = require('normalize-url');
 var humanizeUrl = require('humanize-url');
