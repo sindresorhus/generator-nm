@@ -33,9 +33,11 @@
     "humanize-url": "^1.0.1",
     "normalize-url": "^1.2.0",
     "superb": "^1.1.3",
-    "yeoman-generator": "^0.18.10"
+    "underscore.string": "^3.0.3",
+    "yeoman-generator": "^0.19.2"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "*",
+    "yeoman-assert": "^2.0.0"
   }
 }

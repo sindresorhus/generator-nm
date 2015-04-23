@@ -3,6 +3,7 @@ var superb = require('superb');
 var normalizeUrl = require('normalize-url');
 var humanizeUrl = require('humanize-url');
 var yeoman = require('yeoman-generator');
+var _s = require('underscore.string');
 
 module.exports = yeoman.generators.Base.extend({
 	init: function () {
@@ -13,7 +14,7 @@ module.exports = yeoman.generators.Base.extend({
 			message: 'What do you want to name your module?',
 			default: this.appname.replace(/\s/g, '-'),
 			filter: function (val) {
-				return this._.slugify(val);
+				return _s.slugify(val);
 			}.bind(this)
 		}, {
 			name: 'githubUsername',
@@ -34,7 +35,7 @@ module.exports = yeoman.generators.Base.extend({
 			}
 		}], function (props) {
 			this.moduleName = props.moduleName;
-			this.camelModuleName = this._.camelize(props.moduleName);
+			this.camelModuleName = _s.camelize(props.moduleName);
 			this.githubUsername = props.githubUsername;
 			this.name = this.user.git.name();
 			this.email = this.user.git.email();
