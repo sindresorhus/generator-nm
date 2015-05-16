@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "description": "My <%= superb %> module",
   "license": "MIT",
-  "repository": "<%= githubUsername %>/<%= moduleName %>",
+  "repository": "<%= githubUsername %>/<%= moduleName %>",<% if (cli) { %>
+  "bin": "cli.js",<% } %>
   "author": {
     "name": "<%= name %>",
     "email": "<%= email %>",
@@ -18,10 +19,15 @@
   "files": [
     "index.js"
   ],
-  "keywords": [
+  "keywords": [<% if (cli) { %>
+    "cli-app",
+    "cli",
+    "bin",<% } %>
     ""
   ],
-  "dependencies": {},
+  "dependencies": {
+    <% if (cli) { %>"meow": "^3.0.0"<% } %>
+  },
   "devDependencies": {
     "mocha": "*"
   }
