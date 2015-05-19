@@ -43,4 +43,22 @@ describe('generator', function () {
 			cb();
 		});
 	});
+
+	it('generates eslint config if set linter to eslint', function (cb) {
+		var expected = [
+			'.eslintrc'
+		];
+
+		helpers.mockPrompt(this.generator, {
+			moduleName: 'test',
+			githubUsername: 'test',
+			website: 'test.com',
+			linter: 'eslint'
+		});
+
+		this.generator.run(function () {
+			assert.file(expected);
+			cb();
+		});
+	});
 });

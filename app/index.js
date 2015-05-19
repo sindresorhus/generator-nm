@@ -33,6 +33,12 @@ module.exports = yeoman.generators.Base.extend({
 			filter: function (val) {
 				return normalizeUrl(val);
 			}
+		}, {
+			name: 'linter',
+			message: 'What linter tool do you prefer?',
+			type: 'list',
+			choices: ['jshint', 'eslint'],
+			default: 'jshint'
 		}], function (props) {
 			this.moduleName = props.moduleName;
 			this.camelModuleName = _s.camelize(props.moduleName);
@@ -46,7 +52,16 @@ module.exports = yeoman.generators.Base.extend({
 			this.template('editorconfig', '.editorconfig');
 			this.template('gitattributes', '.gitattributes');
 			this.template('gitignore', '.gitignore');
-			this.template('jshintrc', '.jshintrc');
+
+			switch(props.linter) {
+				case 'jshint':
+					this.template('jshintrc', '.jshintrc');
+					break;
+				case 'eslint':
+					this.template('eslintrc', '.eslintrc');
+					break;
+			}
+
 			this.template('travis.yml', '.travis.yml');
 			this.template('index.js');
 			this.template('license');
