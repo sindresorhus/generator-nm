@@ -18,7 +18,30 @@ var <%= camelModuleName %> = require('<%= moduleName %>');
 <%= camelModuleName %>('unicorns');
 //=> unicorns & rainbows
 ```
+<% if (cli) { %>
 
+## CLI
+
+```
+$ npm install --global <%= moduleName %>
+```
+```
+$ <%= moduleName %> --help
+
+  Usage
+    <%= moduleName %> [input]
+
+  Example
+    <%= moduleName %> 
+    unicorns & rainbows
+
+    <%= moduleName %> ponies
+    ponies & rainbows
+
+  Options
+    --foo Lorem ipsum. Default: false
+```
+<% } %>
 
 ## API
 

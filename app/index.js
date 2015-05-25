@@ -33,6 +33,11 @@ module.exports = yeoman.generators.Base.extend({
 			filter: function (val) {
 				return normalizeUrl(val);
 			}
+		}, {
+			name: 'cli',
+			message: 'Do you need a CLI?',
+			type: 'confirm',
+			default: false
 		}], function (props) {
 			this.moduleName = props.moduleName;
 			this.camelModuleName = _s.camelize(props.moduleName);
@@ -42,6 +47,7 @@ module.exports = yeoman.generators.Base.extend({
 			this.website = props.website;
 			this.humanizedWebsite = humanizeUrl(this.website);
 			this.superb = superb();
+			this.cli = props.cli;
 
 			this.template('editorconfig', '.editorconfig');
 			this.template('gitattributes', '.gitattributes');
@@ -54,6 +60,10 @@ module.exports = yeoman.generators.Base.extend({
 			this.template('_package.json', 'package.json');
 			this.template('readme.md');
 			this.template('test.js');
+
+			if (this.cli) {
+				this.template('cli.js');
+			}
 
 			cb();
 		}.bind(this));
