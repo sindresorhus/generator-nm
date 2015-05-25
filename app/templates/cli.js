@@ -16,7 +16,7 @@ var cli = meow({
 		'  ponies & rainbows',
 		'',
 		'Options',
-		'  --foo Lorem ipsum. Default: false'
+		'  --foo  Lorem ipsum. Default: false'
 	].join('\n')
 });
 

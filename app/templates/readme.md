@@ -32,14 +32,14 @@ $ <%= moduleName %> --help
     <%= moduleName %> [input]
 
   Example
-    <%= moduleName %> 
+    <%= moduleName %>
     unicorns & rainbows
 
     <%= moduleName %> ponies
     ponies & rainbows
 
   Options
-    --foo Lorem ipsum. Default: false
+    --foo  Lorem ipsum. Default: false
 ```
 <% } %>
 

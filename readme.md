@@ -2,6 +2,8 @@
 
 > Scaffold out a [node module](https://github.com/sindresorhus/node-module-boilerplate)
 
+Optionally with a [CLI](http://en.wikipedia.org/wiki/Command-line_interface).
+
 This is what I use for [my own modules](https://www.npmjs.com/~sindresorhus).
 
 ![](screenshot.png)

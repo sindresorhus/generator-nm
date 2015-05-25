@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "description": "My <%= superb %> module",
   "license": "MIT",
-  "repository": "<%= githubUsername %>/<%= moduleName %>",<% if (cli) { %>
-  "bin": "cli.js",<% } %>
+  "repository": "<%= githubUsername %>/<%= moduleName %>",
   "author": {
     "name": "<%= name %>",
     "email": "<%= email %>",
     "url": "<%= humanizedWebsite %>"
-  },
+  },<% if (cli) { %>
+  "bin": "cli.js",<% } %>
   "engines": {
     "node": ">=0.10.0"
   },
@@ -21,13 +21,12 @@
   ],
   "keywords": [<% if (cli) { %>
     "cli-app",
-    "cli",
-    "bin",<% } %>
+    "cli",<% } %>
     ""
   ],
-  "dependencies": {
-    <% if (cli) { %>"meow": "^3.0.0"<% } %>
-  },
+  "dependencies": {<% if (cli) { %>
+    "meow": "^3.0.0"
+  <% } %>},
   "devDependencies": {
     "mocha": "*"
   }
