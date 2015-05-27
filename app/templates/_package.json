@@ -17,7 +17,8 @@
     "test": "mocha"
   },
   "files": [
-    "index.js"
+    "index.js"<% if (cli) { %>,
+    "cli.js"<% } %>
   ],
   "keywords": [<% if (cli) { %>
     "cli-app",
