@@ -39,31 +39,37 @@ module.exports = yeoman.generators.Base.extend({
 			type: 'confirm',
 			default: false
 		}], function (props) {
-			this.moduleName = props.moduleName;
-			this.camelModuleName = _s.camelize(props.moduleName);
-			this.githubUsername = props.githubUsername;
-			this.name = this.user.git.name();
-			this.email = this.user.git.email();
-			this.website = props.website;
-			this.humanizedWebsite = humanizeUrl(this.website);
-			this.superb = superb();
-			this.cli = props.cli;
+			var tpl = {
+				moduleName: props.moduleName,
+				camelModuleName: _s.camelize(props.moduleName),
+				githubUsername: props.githubUsername,
+				name: this.user.git.name(),
+				email: this.user.git.email(),
+				website: props.website,
+				humanizedWebsite: humanizeUrl(props.website),
+				superb: superb(),
+				cli: props.cli
+			};
 
-			this.template('editorconfig', '.editorconfig');
-			this.template('gitattributes', '.gitattributes');
-			this.template('gitignore', '.gitignore');
-			this.template('jshintrc', '.jshintrc');
-			this.template('travis.yml', '.travis.yml');
-			this.template('index.js');
-			this.template('license');
-			// needed so npm doesn't try to use it and fail
-			this.template('_package.json', 'package.json');
-			this.template('readme.md');
-			this.template('test.js');
+			var mv = function (from, to) {
+				this.fs.move(this.destinationPath(from), this.destinationPath(to));
+			}.bind(this);
 
-			if (this.cli) {
-				this.template('cli.js');
+			this.fs.copyTpl([
+				this.templatePath() + '/**',
+				'!**/cli.js'
+			], this.destinationPath(), tpl);
+
+			if (props.cli) {
+				this.fs.copyTpl(this.templatePath('cli.js'), this.destinationPath('cli.js'), tpl);
 			}
+
+			mv('editorconfig', '.editorconfig');
+			mv('gitattributes', '.gitattributes');
+			mv('gitignore', '.gitignore');
+			mv('jshintrc', '.jshintrc');
+			mv('travis.yml', '.travis.yml');
+			mv('_package.json', 'package.json');
 
 			cb();
 		}.bind(this));
