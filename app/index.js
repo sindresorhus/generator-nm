@@ -17,6 +17,9 @@ module.exports = yeoman.generators.Base.extend({
 				return _s.slugify(val);
 			}
 		}, {
+			name: 'moduleDescription',
+			message: 'What is your module description?'
+		}, {
 			name: 'githubUsername',
 			message: 'What is your GitHub username?',
 			store: true,
@@ -41,6 +44,7 @@ module.exports = yeoman.generators.Base.extend({
 		}], function (props) {
 			var tpl = {
 				moduleName: props.moduleName,
+				moduleDescription: props.moduleDescription,
 				camelModuleName: _s.camelize(props.moduleName),
 				githubUsername: props.githubUsername,
 				name: this.user.git.name(),
