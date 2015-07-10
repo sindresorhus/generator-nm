@@ -62,7 +62,9 @@ module.exports = yeoman.generators.Base.extend({
 
 			if (props.cli) {
 				this.fs.copyTpl(this.templatePath('cli.js'), this.destinationPath('cli.js'), tpl);
-			}
+			} else if (this.fs.exists(this.destinationPath('cli.js'))) {
+        this.fs.delete(this.destinationPath('cli.js'))
+      }
 
 			mv('editorconfig', '.editorconfig');
 			mv('gitattributes', '.gitattributes');
