@@ -41,6 +41,7 @@ describe('generator', function () {
 
 		this.generator.run(function () {
 			assert.file(expected);
+			assert.noFile('cli.js');
 			cb();
 		});
 	});
