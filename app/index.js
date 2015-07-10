@@ -55,8 +55,13 @@ module.exports = yeoman.generators.Base.extend({
 				this.fs.move(this.destinationPath(from), this.destinationPath(to));
 			}.bind(this);
 
+			var cpTpl = function (from, to) {
+				this.fs.copyTpl(this.templatePath(from), this.destinationPath(to), tpl);
+			}.bind(this);
+
 			this.fs.copyTpl([
 				this.templatePath() + '/**',
+				'!**/_package.json',
 				'!**/cli.js'
 			], this.destinationPath(), tpl);
 
@@ -69,7 +74,7 @@ module.exports = yeoman.generators.Base.extend({
 			mv('gitignore', '.gitignore');
 			mv('jshintrc', '.jshintrc');
 			mv('travis.yml', '.travis.yml');
-			mv('_package.json', 'package.json');
+			cpTpl('_package.json', 'package.json');
 
 			cb();
 		}.bind(this));
