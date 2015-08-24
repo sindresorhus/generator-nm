@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "xo && mocha"
   },
   "files": [
     "app"
@@ -27,7 +27,8 @@
     "node",
     "module",
     "node_module",
-    "node-module"
+    "node-module",
+    "init"
   ],
   "dependencies": {
     "humanize-url": "^1.0.1",
@@ -38,6 +39,16 @@
   },
   "devDependencies": {
     "mocha": "*",
+    "xo": "*",
     "yeoman-assert": "^2.0.0"
+  },
+  "xo": {
+    "envs": [
+      "node",
+      "mocha"
+    ],
+    "ignores": [
+      "app/templates/**"
+    ]
   }
 }
