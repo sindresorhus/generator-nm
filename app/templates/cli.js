@@ -8,15 +8,14 @@ var cli = meow({
 		'Usage',
 		'  $ <%= moduleName %> [input]',
 		'',
+		'Options',
+		'  --foo  Lorem ipsum. [Default: false]',
+		''
 		'Examples',
 		'  $ <%= moduleName %>',
 		'  unicorns & rainbows',
-		'',
 		'  $ <%= moduleName %> ponies',
-		'  ponies & rainbows',
-		'',
-		'Options',
-		'  --foo  Lorem ipsum. Default: false'
+		'  ponies & rainbows'
 	]
 });
 
