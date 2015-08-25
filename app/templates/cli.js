@@ -10,7 +10,7 @@ var cli = meow({
 		'',
 		'Options',
 		'  --foo  Lorem ipsum. [Default: false]',
-		''
+		'',
 		'Examples',
 		'  $ <%= moduleName %>',
 		'  unicorns & rainbows',
