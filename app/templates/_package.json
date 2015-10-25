@@ -26,11 +26,11 @@
     ""
   ],
   "dependencies": {<% if (cli) { %>
-    "meow": "^3.3.0"
+    "meow": "^3.4.2"
   <% } %>},
   "devDependencies": {
     "ava": "^0.3.0",
-    "xo": "^0.9.0"
+    "xo": "^0.10.0"
   },
   "xo": {
     "ignores": [
