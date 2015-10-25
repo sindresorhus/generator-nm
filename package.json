@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && mocha"
+    "test": "xo && ava"
   },
   "files": [
     "app"
@@ -39,17 +39,15 @@
     "yeoman-generator": "^0.21.1"
   },
   "devDependencies": {
-    "mocha": "*",
+    "ava": "*",
+    "pify": "^2.2.0",
     "xo": "*",
     "yeoman-assert": "^2.0.0"
   },
   "xo": {
-    "envs": [
-      "node",
-      "mocha"
-    ],
     "ignores": [
-      "app/templates/**"
+      "app/templates/**",
+      "test.js"
     ]
   }
 }

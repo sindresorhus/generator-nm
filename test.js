@@ -1,64 +1,53 @@
-'use strict';
-var path = require('path');
-var helpers = require('yeoman-generator').test;
-var assert = require('yeoman-assert');
+import path from 'path';
+import test from 'ava';
+import {test as helpers} from 'yeoman-generator';
+import assert from 'yeoman-assert';
+import pify from 'pify';
 
-describe('generator', function () {
-	beforeEach(function (cb) {
-		var deps = ['../app'];
+let generator;
 
-		helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
-			if (err) {
-				cb(err);
-				return;
-			}
+test.beforeEach(async t => {
+	await pify(helpers.testDirectory)(path.join(__dirname, 'temp'));
+	generator = helpers.createGenerator('nm:app', ['../app'], null, {skipInstall: true});
+});
 
-			this.generator = helpers.createGenerator('nm:app', deps, null, {skipInstall: true});
-			cb();
-		}.bind(this));
+test.serial('generates expected files', async t => {
+	helpers.mockPrompt(generator, {
+		moduleName: 'test',
+		githubUsername: 'test',
+		website: 'test.com',
+		cli: false
 	});
 
-	it('generates expected files', function (cb) {
-		var expected = [
-			'.editorconfig',
-			'.gitattributes',
-			'.gitignore',
-			'.travis.yml',
-			'index.js',
-			'license',
-			'package.json',
-			'readme.md',
-			'test.js'
-		];
+	await pify(generator.run.bind(generator))();
 
-		helpers.mockPrompt(this.generator, {
-			moduleName: 'test',
-			githubUsername: 'test',
-			website: 'test.com',
-			cli: false
-		});
+	assert.file([
+		'.editorconfig',
+		'.gitattributes',
+		'.gitignore',
+		'.travis.yml',
+		'index.js',
+		'license',
+		'package.json',
+		'readme.md',
+		'test.js'
+	]);
 
-		this.generator.run(function () {
-			assert.file(expected);
-			assert.noFile('cli.js');
-			cb();
-		});
+	assert.noFile('cli.js');
+});
+
+test.serial('CLI option', async t => {
+	helpers.mockPrompt(generator, {
+		moduleName: 'test',
+		githubUsername: 'test',
+		website: 'test.com',
+		cli: true
 	});
 
-	it('CLI option', function (cb) {
-		helpers.mockPrompt(this.generator, {
-			moduleName: 'test',
-			githubUsername: 'test',
-			website: 'test.com',
-			cli: true
-		});
+	await pify(generator.run.bind(generator))();
 
-		this.generator.run(function () {
-			assert.file('cli.js');
-			assert.fileContent('package.json', /"bin":/);
-			assert.fileContent('package.json', /"bin": "cli.js"/);
-			assert.fileContent('package.json', /"meow"/);
-			cb();
-		});
-	});
+	assert.file('cli.js');
+	assert.fileContent('package.json', /"bin":/);
+	assert.fileContent('package.json', /"bin": "cli.js"/);
+	assert.fileContent('package.json', /"meow"/);
 });
