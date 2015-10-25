@@ -57,7 +57,7 @@ module.exports = yeoman.generators.Base.extend({
 
 			this.fs.copyTpl([
 				this.templatePath() + '/**',
-				'!**/cli.js'
+				'!' + this.templatePath('cli.js')
 			], this.destinationPath(), tpl);
 
 			if (props.cli) {
