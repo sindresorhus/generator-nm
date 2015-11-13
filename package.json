@@ -32,6 +32,7 @@
     "sindre"
   ],
   "dependencies": {
+    "generator-git-init": "^1.0.4",
     "humanize-url": "^1.0.1",
     "normalize-url": "^1.2.0",
     "superb": "^1.1.3",

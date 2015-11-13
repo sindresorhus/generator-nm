@@ -73,6 +73,11 @@ module.exports = yeoman.generators.Base.extend({
 			cb();
 		}.bind(this));
 	},
+	writing: function () {
+		this.composeWith('git-init', {}, {
+			local: require.resolve('generator-git-init/generators/app')
+		});
+	},
 	install: function () {
 		this.installDependencies({bower: false});
 	}
