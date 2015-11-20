@@ -3,6 +3,9 @@ import test from 'ava';
 import {test as helpers} from 'yeoman-generator';
 import assert from 'yeoman-assert';
 import pify from 'pify';
+import pinkiePromise from 'pinkie-promise';
+
+global.Promise = pinkiePromise;
 
 let generator;
 
