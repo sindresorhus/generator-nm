@@ -1,67 +1,60 @@
 'use strict';
-var superb = require('superb');
-var normalizeUrl = require('normalize-url');
-var humanizeUrl = require('humanize-url');
-var yeoman = require('yeoman-generator');
-var _s = require('underscore.string');
+const superb = require('superb');
+const normalizeUrl = require('normalize-url');
+const humanizeUrl = require('humanize-url');
+const yeoman = require('yeoman-generator');
+const _s = require('underscore.string');
 
 module.exports = yeoman.generators.Base.extend({
-	init: function () {
-		var cb = this.async();
+	init() {
+		const cb = this.async();
+		const self = this;
 
 		this.prompt([{
 			name: 'moduleName',
 			message: 'What do you want to name your module?',
 			default: this.appname.replace(/\s/g, '-'),
-			filter: function (val) {
-				return _s.slugify(val);
-			}
+			filter: x => _s.slugify(x)
 		}, {
 			name: 'githubUsername',
 			message: 'What is your GitHub username?',
 			store: true,
-			validate: function (val) {
-				return val.length > 0 ? true : 'You have to provide a username';
-			}
+			validate: x => x.length > 0 ? true : 'You have to provide a username'
 		}, {
 			name: 'website',
 			message: 'What is the URL of your website?',
 			store: true,
-			validate: function (val) {
-				return val.length > 0 ? true : 'You have to provide a website URL';
-			},
-			filter: function (val) {
-				return normalizeUrl(val);
-			}
+			validate: x => x.length > 0 ? true : 'You have to provide a website URL',
+			filter: x => normalizeUrl(x)
 		}, {
 			name: 'cli',
 			message: 'Do you need a CLI?',
 			type: 'confirm',
 			default: false
-		}], function (props) {
-			var tpl = {
+		}], props => {
+			const tpl = {
 				moduleName: props.moduleName,
 				camelModuleName: _s.camelize(props.moduleName),
 				githubUsername: props.githubUsername,
-				name: this.user.git.name(),
-				email: this.user.git.email(),
+				name: self.user.git.name(),
+				email: self.user.git.email(),
 				website: props.website,
 				humanizedWebsite: humanizeUrl(props.website),
 				superb: superb(),
 				cli: props.cli
 			};
 
-			var mv = function (from, to) {
-				this.fs.move(this.destinationPath(from), this.destinationPath(to));
-			}.bind(this);
+			const mv = (from, to) => {
+				self.fs.move(self.destinationPath(from), self.destinationPath(to));
+			};
 
-			this.fs.copyTpl([
-				this.templatePath() + '/**',
+			self.fs.copyTpl([
+				`${self.templatePath()}/**`,
 				'!**/cli.js'
-			], this.destinationPath(), tpl);
+			], self.destinationPath(), tpl);
 
 			if (props.cli) {
-				this.fs.copyTpl(this.templatePath('cli.js'), this.destinationPath('cli.js'), tpl);
+				self.fs.copyTpl(self.templatePath('cli.js'), self.destinationPath('cli.js'), tpl);
 			}
 
 			mv('editorconfig', '.editorconfig');
@@ -71,9 +64,9 @@ module.exports = yeoman.generators.Base.extend({
 			mv('_package.json', 'package.json');
 
 			cb();
-		}.bind(this));
+		});
 	},
-	install: function () {
+	install() {
 		this.installDependencies({bower: false});
 	}
 });

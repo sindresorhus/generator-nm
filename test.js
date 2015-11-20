@@ -6,12 +6,12 @@ import pify from 'pify';
 
 let generator;
 
-test.beforeEach(async t => {
+test.beforeEach(async () => {
 	await pify(helpers.testDirectory)(path.join(__dirname, 'temp'));
 	generator = helpers.createGenerator('nm:app', ['../app'], null, {skipInstall: true});
 });
 
-test.serial('generates expected files', async t => {
+test.serial('generates expected files', async () => {
 	helpers.mockPrompt(generator, {
 		moduleName: 'test',
 		githubUsername: 'test',
@@ -36,7 +36,7 @@ test.serial('generates expected files', async t => {
 	assert.noFile('cli.js');
 });
 
-test.serial('CLI option', async t => {
+test.serial('CLI option', async () => {
 	helpers.mockPrompt(generator, {
 		moduleName: 'test',
 		githubUsername: 'test',

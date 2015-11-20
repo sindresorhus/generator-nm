@@ -10,7 +10,7 @@
     "url": "sindresorhus.com"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "scripts": {
     "test": "xo && ava"
@@ -45,9 +45,9 @@
     "yeoman-assert": "^2.0.0"
   },
   "xo": {
+    "esnext": true,
     "ignores": [
-      "app/templates/**",
-      "test.js"
+      "app/templates/**"
     ]
   }
 }
