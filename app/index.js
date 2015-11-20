@@ -66,6 +66,9 @@ module.exports = yeoman.generators.Base.extend({
 			cb();
 		});
 	},
+	git() {
+		this.spawnCommandSync('git', ['init']);
+	},
 	install() {
 		this.installDependencies({bower: false});
 	}

@@ -23,6 +23,7 @@ test.serial('generates expected files', async () => {
 
 	assert.file([
 		'.editorconfig',
+		'.git',
 		'.gitattributes',
 		'.gitignore',
 		'.travis.yml',
