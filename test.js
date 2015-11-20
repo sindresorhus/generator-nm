@@ -25,6 +25,7 @@ test.serial('generates expected files', async t => {
 		'.editorconfig',
 		'.gitattributes',
 		'.gitignore',
+		'.git',
 		'.travis.yml',
 		'index.js',
 		'license',
