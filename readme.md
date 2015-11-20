@@ -30,6 +30,7 @@ $ yo nm
 Use [chalk](https://github.com/sindresorhus/chalk) if you want colors in your CLI.
 
 
+
 ## License
 
 MIT © [Sindre Sorhus](http://sindresorhus.com)
