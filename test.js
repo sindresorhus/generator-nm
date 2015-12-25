@@ -1,6 +1,6 @@
 import path from 'path';
 import test from 'ava';
-import {test as helpers} from 'yeoman-generator';
+import helpers from 'yeoman-test';
 import assert from 'yeoman-assert';
 import pify from 'pify';
 
