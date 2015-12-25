@@ -5,7 +5,7 @@ const humanizeUrl = require('humanize-url');
 const yeoman = require('yeoman-generator');
 const _s = require('underscore.string');
 
-module.exports = yeoman.generators.Base.extend({
+module.exports = yeoman.Base.extend({
 	init() {
 		const cb = this.async();
 		const self = this;
