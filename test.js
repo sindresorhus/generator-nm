@@ -52,3 +52,21 @@ test.serial('CLI option', async () => {
 	assert.fileContent('package.json', /"bin": "cli.js"/);
 	assert.fileContent('package.json', /"meow"/);
 });
+
+test.serial('nyc option', async () => {
+	helpers.mockPrompt(generator, {
+		moduleName: 'test',
+		githubUsername: 'test',
+		website: 'test.com',
+		cli: false,
+		nyc: true
+	});
+
+	await pify(generator.run.bind(generator))();
+
+	assert.noFile('cli.js');
+	assert.fileContent('.gitignore', /\.nyc_output/);
+	assert.fileContent('.gitignore', /coverage/);
+	assert.fileContent('package.json', /"xo && ava && nyc ava"/);
+	assert.fileContent('package.json', /"nyc":/);
+});

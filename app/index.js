@@ -31,6 +31,11 @@ module.exports = yeoman.Base.extend({
 			message: 'Do you need a CLI?',
 			type: 'confirm',
 			default: false
+		}, {
+			name: 'nyc',
+			message: 'Do you need code coverage (nyc)?',
+			type: 'confirm',
+			default: false
 		}], props => {
 			const tpl = {
 				moduleName: props.moduleName,
@@ -41,7 +46,8 @@ module.exports = yeoman.Base.extend({
 				website: props.website,
 				humanizedWebsite: humanizeUrl(props.website),
 				superb: superb(),
-				cli: props.cli
+				cli: props.cli,
+				nyc: props.nyc
 			};
 
 			const mv = (from, to) => {
