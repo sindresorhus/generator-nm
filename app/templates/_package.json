@@ -14,7 +14,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && ava <% if (nyc) { %>&& nyc ava<% } %>"
+    "test": "xo && ava<% if (nyc) { %>&& nyc ava<% } %>"
   },
   "files": [
     "index.js"<% if (cli) { %>,
