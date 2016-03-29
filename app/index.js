@@ -33,7 +33,7 @@ module.exports = yeoman.Base.extend({
 			default: false
 		}, {
 			name: 'nyc',
-			message: 'Do you need code coverage (nyc)?',
+			message: 'Do you need code coverage?',
 			type: 'confirm',
 			default: false
 		}], props => {
