@@ -14,7 +14,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && <% if (nyc) { %>nyc <% } %>ava"
   },
   "files": [
     "index.js"<% if (cli) { %>,
@@ -30,6 +30,7 @@
   <% } %>},
   "devDependencies": {
     "ava": "^0.12.0",
-    "xo": "^0.12.1"
+    "xo": "^0.12.1"<% if (nyc) { %>,
+    "nyc": "^6.1.1"<% } %>
   }
 }
