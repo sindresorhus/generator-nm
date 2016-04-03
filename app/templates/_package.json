@@ -7,7 +7,7 @@
   "author": {
     "name": "<%= name %>",
     "email": "<%= email %>",
-    "url": "<%= humanizedWebsite %>"
+    "url": "<%= website %>"
   },<% if (cli) { %>
   "bin": "cli.js",<% } %>
   "engines": {
