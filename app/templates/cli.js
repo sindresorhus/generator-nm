@@ -1,9 +1,13 @@
 #!/usr/bin/env node
-'use strict';
+<% if (babel) { %>
+import meow from 'meow';
+import <%= camelModuleName %> from './';
+
+const cli = meow([<% } else { %>'use strict';
 var meow = require('meow');
 var <%= camelModuleName %> = require('./');
 
-var cli = meow([
+var cli = meow([<% } %>
 	'Usage',
 	'  $ <%= moduleName %> [input]',
 	'',

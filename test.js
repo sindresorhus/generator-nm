@@ -70,3 +70,20 @@ test.serial('nyc option', async () => {
 	assert.fileContent('package.json', /"xo && nyc ava"/);
 	assert.fileContent('package.json', /"nyc":/);
 });
+
+test.serial('generates expected files for ES2015', async () => {
+	helpers.mockPrompt(generator, {
+		moduleName: 'test',
+		githubUsername: 'test',
+		website: 'test.com',
+		cli: true,
+		babel: true
+	});
+
+	await pify(generator.run.bind(generator))();
+
+	assert.file([
+		'src/index.js',
+		'src/cli.js'
+	]);
+});
