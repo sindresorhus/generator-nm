@@ -12,7 +12,7 @@ This is what I use for [my own modules](https://www.npmjs.com/~sindresorhus).
 ## Install
 
 ```
-$ npm install --global generator-nm
+$ npm install --global yo generator-nm
 ```
 
 
