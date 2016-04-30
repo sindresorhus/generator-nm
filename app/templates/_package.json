@@ -14,8 +14,14 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && <% if (nyc) { %>nyc <% if (coveralls) { %>--reporter=lcov --reporter=text <% } %><% } %>ava"
-  },
+    "test": "xo && <% if (nyc) { %>nyc <% } %>ava"
+  },<% if (coveralls) { %>
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  },<% } %>
   "files": [
     "index.js"<% if (cli) { %>,
     "cli.js"<% } %>

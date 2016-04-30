@@ -69,8 +69,9 @@ test.serial('nyc option', async () => {
 	assert.fileContent('.gitignore', /\.nyc_output/);
 	assert.fileContent('.gitignore', /coverage/);
 	assert.fileContent('package.json', /"xo && nyc ava"/);
-	assert.fileContent('package.json', /"nyc":/);
+	assert.fileContent('package.json', /"nyc": "/);
 	assert.noFileContent('package.json', /"coveralls":/);
+	assert.noFileContent('package.json', /"lcov"/);
 	assert.noFileContent('.travis.yml', /coveralls/);
 });
 
@@ -89,8 +90,9 @@ test.serial('coveralls option', async () => {
 	assert.noFile('cli.js');
 	assert.fileContent('.gitignore', /\.nyc_output/);
 	assert.fileContent('.gitignore', /coverage/);
-	assert.fileContent('package.json', /"xo && nyc --reporter=lcov --reporter=text ava"/);
-	assert.fileContent('package.json', /"nyc":/);
+	assert.fileContent('package.json', /"xo && nyc ava"/);
+	assert.fileContent('package.json', /"nyc": "/);
 	assert.fileContent('package.json', /"coveralls":/);
+	assert.fileContent('package.json', /"lcov"/);
 	assert.fileContent('.travis.yml', /coveralls/);
 });
