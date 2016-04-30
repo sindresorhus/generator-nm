@@ -36,6 +36,12 @@ module.exports = yeoman.Base.extend({
 			message: 'Do you need code coverage?',
 			type: 'confirm',
 			default: false
+		}, {
+			name: 'coveralls',
+			message: 'Upload coverage to coveralls.io?',
+			type: 'confirm',
+			default: false,
+			when: x => x.nyc
 		}], props => {
 			const tpl = {
 				moduleName: props.moduleName,
@@ -47,7 +53,8 @@ module.exports = yeoman.Base.extend({
 				humanizedWebsite: humanizeUrl(props.website),
 				superb: superb(),
 				cli: props.cli,
-				nyc: props.nyc
+				nyc: props.nyc,
+				coveralls: props.coveralls
 			};
 
 			const mv = (from, to) => {
