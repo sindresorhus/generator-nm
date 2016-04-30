@@ -1,5 +1,3 @@
-node_modules
-<% if (nyc) { %>
+node_modules<% if (nyc) { %>
 .nyc_output
-coverage
-<% } %>
+coverage<% } %>
