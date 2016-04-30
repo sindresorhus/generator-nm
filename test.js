@@ -59,7 +59,8 @@ test.serial('nyc option', async () => {
 		githubUsername: 'test',
 		website: 'test.com',
 		cli: false,
-		nyc: true
+		nyc: true,
+		coveralls: false
 	});
 
 	await pify(generator.run.bind(generator))();
@@ -68,5 +69,30 @@ test.serial('nyc option', async () => {
 	assert.fileContent('.gitignore', /\.nyc_output/);
 	assert.fileContent('.gitignore', /coverage/);
 	assert.fileContent('package.json', /"xo && nyc ava"/);
-	assert.fileContent('package.json', /"nyc":/);
+	assert.fileContent('package.json', /"nyc": "/);
+	assert.noFileContent('package.json', /"coveralls":/);
+	assert.noFileContent('package.json', /"lcov"/);
+	assert.noFileContent('.travis.yml', /coveralls/);
+});
+
+test.serial('coveralls option', async () => {
+	helpers.mockPrompt(generator, {
+		moduleName: 'test',
+		githubUsername: 'test',
+		website: 'test.com',
+		cli: false,
+		nyc: true,
+		coveralls: true
+	});
+
+	await pify(generator.run.bind(generator))();
+
+	assert.noFile('cli.js');
+	assert.fileContent('.gitignore', /\.nyc_output/);
+	assert.fileContent('.gitignore', /coverage/);
+	assert.fileContent('package.json', /"xo && nyc ava"/);
+	assert.fileContent('package.json', /"nyc": "/);
+	assert.fileContent('package.json', /"coveralls":/);
+	assert.fileContent('package.json', /"lcov"/);
+	assert.fileContent('.travis.yml', /coveralls/);
 });

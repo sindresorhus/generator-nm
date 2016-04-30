@@ -29,8 +29,15 @@
     "meow": "^3.7.0"
   <% } %>},
   "devDependencies": {
-    "ava": "^0.14.0",
-    "xo": "^0.14.0"<% if (nyc) { %>,
-    "nyc": "^6.4.0"<% } %>
-  }
+    "ava": "^0.14.0",<% if (coveralls) { %>
+    "coveralls": "^2.11.9",<% } %><% if (nyc) { %>
+    "nyc": "^6.4.0",<% } %>
+    "xo": "^0.14.0"
+  }<% if (coveralls) { %>,
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }<% } %>
 }
