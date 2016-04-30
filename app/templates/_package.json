@@ -15,13 +15,7 @@
   },
   "scripts": {
     "test": "xo && <% if (nyc) { %>nyc <% } %>ava"
-  },<% if (coveralls) { %>
-  "nyc": {
-    "reporter": [
-      "lcov",
-      "text"
-    ]
-  },<% } %>
+  },
   "files": [
     "index.js"<% if (cli) { %>,
     "cli.js"<% } %>
@@ -39,5 +33,11 @@
     "coveralls": "^2.11.9",<% } %><% if (nyc) { %>
     "nyc": "^6.4.0",<% } %>
     "xo": "^0.14.0"
-  }
+  }<% if (coveralls) { %>,
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }<% } %>
 }
