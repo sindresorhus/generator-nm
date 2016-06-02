@@ -29,7 +29,7 @@
     "meow": "^3.7.0"
   <% } %>},
   "devDependencies": {
-    "ava": "^0.14.0",<% if (coveralls) { %>
+    "ava": "^0.15.1",<% if (coveralls) { %>
     "coveralls": "^2.11.9",<% } %><% if (nyc) { %>
     "nyc": "^6.4.0",<% } %>
     "xo": "^0.15.0"
