@@ -30,9 +30,7 @@ module.exports = class extends yeoman.Base {
 		});
 	}
 	init() {
-		const cb = this.async();
-
-		this.prompt([{
+		return this.prompt([{
 			name: 'moduleName',
 			message: 'What do you want to name your module?',
 			default: this.appname.replace(/\s/g, '-'),
@@ -67,7 +65,7 @@ module.exports = class extends yeoman.Base {
 			type: 'confirm',
 			default: false,
 			when: x => (x.nyc || this.options.coverage) && (this.options.coveralls === undefined)
-		}], props => {
+		}]).then(props => {
 			const or = (option, prop) => this.options[option] === undefined ? props[prop || option] : this.options[option];
 
 			const cli = or('cli');
@@ -106,8 +104,6 @@ module.exports = class extends yeoman.Base {
 			mv('gitignore', '.gitignore');
 			mv('travis.yml', '.travis.yml');
 			mv('_package.json', 'package.json');
-
-			cb();
 		});
 	}
 	git() {
