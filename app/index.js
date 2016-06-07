@@ -5,9 +5,9 @@ const humanizeUrl = require('humanize-url');
 const yeoman = require('yeoman-generator');
 const _s = require('underscore.string');
 
-module.exports = yeoman.Base.extend({
-	constructor: function () { // eslint-disable-line babel/object-shorthand
-		yeoman.Base.apply(this, arguments);
+module.exports = class extends yeoman.Base {
+	constructor(a, b) {
+		super(a, b);
 
 		this.option('org', {
 			type: 'string',
@@ -28,7 +28,7 @@ module.exports = yeoman.Base.extend({
 			type: 'boolean',
 			desc: 'Upload coverage to coveralls.io (implies coverage)'
 		});
-	},
+	}
 	init() {
 		const cb = this.async();
 
@@ -109,11 +109,11 @@ module.exports = yeoman.Base.extend({
 
 			cb();
 		});
-	},
+	}
 	git() {
 		this.spawnCommandSync('git', ['init']);
-	},
+	}
 	install() {
 		this.installDependencies({bower: false});
 	}
-});
+};
