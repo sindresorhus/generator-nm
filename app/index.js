@@ -6,9 +6,31 @@ const yeoman = require('yeoman-generator');
 const _s = require('underscore.string');
 
 module.exports = yeoman.Base.extend({
+	constructor: function () { // eslint-disable-line babel/object-shorthand
+		yeoman.Base.apply(this, arguments);
+
+		this.option('org', {
+			type: 'string',
+			desc: 'Publish to a GitHub organization account'
+		});
+
+		this.option('cli', {
+			type: 'boolean',
+			desc: 'Add a CLI'
+		});
+
+		this.option('coverage', {
+			type: 'boolean',
+			desc: 'Add code coverage with nyc'
+		});
+
+		this.option('coveralls', {
+			type: 'boolean',
+			desc: 'Upload coverage to coveralls.io (implies coverage)'
+		});
+	},
 	init() {
 		const cb = this.async();
-		const self = this;
 
 		this.prompt([{
 			name: 'moduleName',
@@ -19,7 +41,8 @@ module.exports = yeoman.Base.extend({
 			name: 'githubUsername',
 			message: 'What is your GitHub username?',
 			store: true,
-			validate: x => x.length > 0 ? true : 'You have to provide a username'
+			validate: x => x.length > 0 ? true : 'You have to provide a username',
+			when: () => !this.options.org
 		}, {
 			name: 'website',
 			message: 'What is the URL of your website?',
@@ -30,44 +53,52 @@ module.exports = yeoman.Base.extend({
 			name: 'cli',
 			message: 'Do you need a CLI?',
 			type: 'confirm',
-			default: false
+			default: Boolean(this.options.cli),
+			when: () => this.options.cli === undefined
 		}, {
 			name: 'nyc',
 			message: 'Do you need code coverage?',
 			type: 'confirm',
-			default: false
+			default: Boolean(this.options.coveralls || this.options.coverage),
+			when: () => (this.options.coverage === undefined) && (this.options.coveralls === undefined)
 		}, {
 			name: 'coveralls',
 			message: 'Upload coverage to coveralls.io?',
 			type: 'confirm',
 			default: false,
-			when: x => x.nyc
+			when: x => (x.nyc || this.options.coverage) && (this.options.coveralls === undefined)
 		}], props => {
+			const or = (option, prop) => this.options[option] === undefined ? props[prop || option] : this.options[option];
+
+			const cli = or('cli');
+			const coveralls = or('coveralls');
+			const nyc = coveralls || or('coverage', 'nyc');
+
 			const tpl = {
 				moduleName: props.moduleName,
 				camelModuleName: _s.camelize(props.moduleName),
-				githubUsername: props.githubUsername,
-				name: self.user.git.name(),
-				email: self.user.git.email(),
+				githubUsername: this.options.org || props.githubUsername,
+				name: this.user.git.name(),
+				email: this.user.git.email(),
 				website: props.website,
 				humanizedWebsite: humanizeUrl(props.website),
 				superb: superb(),
-				cli: props.cli,
-				nyc: props.nyc,
-				coveralls: props.coveralls
+				cli,
+				nyc,
+				coveralls
 			};
 
 			const mv = (from, to) => {
-				self.fs.move(self.destinationPath(from), self.destinationPath(to));
+				this.fs.move(this.destinationPath(from), this.destinationPath(to));
 			};
 
-			self.fs.copyTpl([
-				`${self.templatePath()}/**`,
+			this.fs.copyTpl([
+				`${this.templatePath()}/**`,
 				'!**/cli.js'
-			], self.destinationPath(), tpl);
+			], this.destinationPath(), tpl);
 
 			if (props.cli) {
-				self.fs.copyTpl(self.templatePath('cli.js'), self.destinationPath('cli.js'), tpl);
+				this.fs.copyTpl(this.templatePath('cli.js'), this.destinationPath('cli.js'), tpl);
 			}
 
 			mv('editorconfig', '.editorconfig');
