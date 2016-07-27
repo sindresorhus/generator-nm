@@ -99,7 +99,7 @@ test.serial('coveralls option', async () => {
 });
 
 test('parse scoped package names', t => {
-	t.is(moduleName('author/thing'), 'author-thing'); // slugify non-scoped packages
-	t.is(moduleName('@author/thing'), '@author/thing'); // accept scoped packages
-	t.is(moduleName('@author/hi/there'), 'author-hi-there'); // invalid scoped package, fallback to regular slugify
+	t.is(moduleName.slugify('author/thing'), 'author-thing'); // slugify non-scoped packages
+	t.is(moduleName.slugify('@author/thing'), '@author/thing'); // accept scoped packages
+	t.is(moduleName.slugify('@author/hi/there'), 'author-hi-there'); // invalid scoped package, fallback to regular slugify
 });

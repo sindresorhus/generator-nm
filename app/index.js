@@ -35,7 +35,7 @@ module.exports = class extends yeoman.Base {
 			name: 'moduleName',
 			message: 'What do you want to name your module?',
 			default: this.appname.replace(/\s/g, '-'),
-			filter: x => moduleName(x)
+			filter: x => moduleName.slugify(x)
 		}, {
 			name: 'githubUsername',
 			message: 'What is your GitHub username?',
@@ -77,6 +77,7 @@ module.exports = class extends yeoman.Base {
 				moduleName: props.moduleName,
 				camelModuleName: _s.camelize(props.moduleName),
 				githubUsername: this.options.org || props.githubUsername,
+				repoName: moduleName.repoName(props.moduleName),
 				name: this.user.git.name(),
 				email: this.user.git.email(),
 				website: props.website,

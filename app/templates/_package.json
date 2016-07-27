@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "My <%= superb %> module",
   "license": "MIT",
-  "repository": "<%= githubUsername %>/<%= moduleName %>",
+  "repository": "<%= githubUsername %>/<%= repoName %>",
   "author": {
     "name": "<%= name %>",
     "email": "<%= email %>",
