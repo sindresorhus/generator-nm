@@ -5,15 +5,15 @@ var <%= camelModuleName %> = require('./');
 
 var cli = meow([
 	'Usage',
-	'  $ <%= moduleName %> [input]',
+	'  $ <%= repoName %> [input]',
 	'',
 	'Options',
 	'  --foo  Lorem ipsum. [Default: false]',
 	'',
 	'Examples',
-	'  $ <%= moduleName %>',
+	'  $ <%= repoName %>',
 	'  unicorns & rainbows',
-	'  $ <%= moduleName %> ponies',
+	'  $ <%= repoName %> ponies',
 	'  ponies & rainbows'
 ]);
 
