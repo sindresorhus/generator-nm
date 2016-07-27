@@ -73,11 +73,13 @@ module.exports = class extends yeoman.Base {
 			const coveralls = or('coveralls');
 			const nyc = coveralls || or('coverage', 'nyc');
 
+			const repoName = moduleName.repoName(props.moduleName);
+
 			const tpl = {
 				moduleName: props.moduleName,
-				camelModuleName: _s.camelize(props.moduleName),
+				camelModuleName: _s.camelize(repoName),
 				githubUsername: this.options.org || props.githubUsername,
-				repoName: moduleName.repoName(props.moduleName),
+				repoName,
 				name: this.user.git.name(),
 				email: this.user.git.email(),
 				website: props.website,
