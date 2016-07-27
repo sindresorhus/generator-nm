@@ -3,6 +3,7 @@ import test from 'ava';
 import helpers from 'yeoman-test';
 import assert from 'yeoman-assert';
 import pify from 'pify';
+import moduleName from './app/module-name';
 
 let generator;
 
@@ -95,4 +96,10 @@ test.serial('coveralls option', async () => {
 	assert.fileContent('package.json', /"coveralls":/);
 	assert.fileContent('package.json', /"lcov"/);
 	assert.fileContent('.travis.yml', /coveralls/);
+});
+
+test('parse scoped package names', t => {
+	t.is(moduleName('author/thing'), 'author-thing'); // slugify non-scoped packages
+	t.is(moduleName('@author/thing'), '@author/thing'); // accept scoped packages
+	t.is(moduleName('@author/hi/there'), 'author-hi-there'); // invalid scoped package, fallback to regular slugify
 });
