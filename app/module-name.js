@@ -2,16 +2,16 @@ const _s = require('underscore.string');
 
 const scopedRegex = /^(?:@([^/]+?)[/])?([^/]+?)$/;
 
-exports.isScoped = function (name) {
+exports.isScoped = name => {
 	return scopedRegex.test(name);
 };
-exports.repoName = function (name) {
+exports.repoName = name => {
 	if (exports.isScoped(name)) {
 		return name.match(scopedRegex)[2];
 	}
 	return name;
 };
-exports.slugify = function (name) {
+exports.slugify = name => {
 	if (exports.isScoped(name)) {
 		return name;
 	}
