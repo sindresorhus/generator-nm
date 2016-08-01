@@ -53,7 +53,7 @@ $ <%= repoName %> --help
     <%= repoName %> [input]
 
   Options
-    --foo  Lorem ipsum. [Default: false]
+    --foo  Lorem ipsum [Default: false]
 
   Examples
     $ <%= repoName %>
