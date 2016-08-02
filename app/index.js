@@ -34,7 +34,7 @@ module.exports = class extends yeoman.Base {
 		return this.prompt([{
 			name: 'moduleName',
 			message: 'What do you want to name your module?',
-			default: this.appname.replace(/\s/g, '-'),
+			default: _s.slugify(this.appname),
 			filter: x => moduleName.slugify(x)
 		}, {
 			name: 'moduleDescription',
