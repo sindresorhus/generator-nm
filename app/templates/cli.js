@@ -8,7 +8,7 @@ const cli = meow(`
 	  $ <%= repoName %> [input]
 
 	Options
-	  --foo  Lorem ipsum. [Default: false]
+	  --foo  Lorem ipsum [Default: false]
 
 	Examples
 	  $ <%= repoName %>
