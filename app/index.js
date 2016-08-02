@@ -4,6 +4,7 @@ const normalizeUrl = require('normalize-url');
 const humanizeUrl = require('humanize-url');
 const yeoman = require('yeoman-generator');
 const _s = require('underscore.string');
+const moduleName = require('./module-name');
 
 module.exports = class extends yeoman.Base {
 	constructor(a, b) {
@@ -34,7 +35,7 @@ module.exports = class extends yeoman.Base {
 			name: 'moduleName',
 			message: 'What do you want to name your module?',
 			default: this.appname.replace(/\s/g, '-'),
-			filter: x => _s.slugify(x)
+			filter: x => moduleName.slugify(x)
 		}, {
 			name: 'moduleDescription',
 			message: 'What is your module description?',
@@ -76,11 +77,14 @@ module.exports = class extends yeoman.Base {
 			const coveralls = or('coveralls');
 			const nyc = coveralls || or('coverage', 'nyc');
 
+			const repoName = moduleName.repoName(props.moduleName);
+
 			const tpl = {
 				moduleName: props.moduleName,
 				moduleDescription: props.moduleDescription,
-				camelModuleName: _s.camelize(props.moduleName),
+				camelModuleName: _s.camelize(repoName),
 				githubUsername: this.options.org || props.githubUsername,
+				repoName,
 				name: this.user.git.name(),
 				email: this.user.git.email(),
 				website: props.website,
