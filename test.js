@@ -133,6 +133,6 @@ test.serial('defaults to superb description', async () => {
 
 	await pify(generator.run.bind(generator))();
 
-	assert.fileContent('package.json', /"description": "My (.)+ module",/);
-	assert.fileContent('readme.md', /> My (.)+ module/);
+	assert.fileContent('package.json', /"description": "My .+ module",/);
+	assert.fileContent('readme.md', /> My .+ module/);
 });
