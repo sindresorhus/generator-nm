@@ -96,3 +96,36 @@ test.serial('coveralls option', async () => {
 	assert.fileContent('package.json', /"lcov"/);
 	assert.fileContent('.travis.yml', /coveralls/);
 });
+
+test.serial('prompts for description', async () => {
+	helpers.mockPrompt(generator, {
+		moduleName: 'test',
+		moduleDescription: 'foo',
+		githubUsername: 'test',
+		website: 'test.com',
+		cli: false,
+		nyc: true,
+		coveralls: true
+	});
+
+	await pify(generator.run.bind(generator))();
+
+	assert.fileContent('package.json', /"description": "foo",/);
+	assert.fileContent('readme.md', /> foo/);
+});
+
+test.serial('defaults to superb description', async () => {
+	helpers.mockPrompt(generator, {
+		moduleName: 'test',
+		githubUsername: 'test',
+		website: 'test.com',
+		cli: false,
+		nyc: true,
+		coveralls: true
+	});
+
+	await pify(generator.run.bind(generator))();
+
+	assert.fileContent('package.json', /"description": "My (\w)+ module",/);
+	assert.fileContent('readme.md', /> My (\w)+ module/);
+});
