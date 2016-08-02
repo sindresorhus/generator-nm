@@ -103,3 +103,36 @@ test('parse scoped package names', t => {
 	t.is(moduleName.slugify('@author/thing'), '@author/thing', 'accept scoped packages');
 	t.is(moduleName.slugify('@author/hi/there'), 'author-hi-there', 'fall back to regular slugify if invalid scoped name');
 });
+
+test.serial('prompts for description', async () => {
+	helpers.mockPrompt(generator, {
+		moduleName: 'test',
+		moduleDescription: 'foo',
+		githubUsername: 'test',
+		website: 'test.com',
+		cli: false,
+		nyc: true,
+		coveralls: true
+	});
+
+	await pify(generator.run.bind(generator))();
+
+	assert.fileContent('package.json', /"description": "foo",/);
+	assert.fileContent('readme.md', /> foo/);
+});
+
+test.serial('defaults to superb description', async () => {
+	helpers.mockPrompt(generator, {
+		moduleName: 'test',
+		githubUsername: 'test',
+		website: 'test.com',
+		cli: false,
+		nyc: true,
+		coveralls: true
+	});
+
+	await pify(generator.run.bind(generator))();
+
+	assert.fileContent('package.json', /"description": "My (\w)+ module",/);
+	assert.fileContent('readme.md', /> My (\w)+ module/);
+});

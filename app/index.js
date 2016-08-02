@@ -37,6 +37,10 @@ module.exports = class extends yeoman.Base {
 			default: this.appname.replace(/\s/g, '-'),
 			filter: x => moduleName.slugify(x)
 		}, {
+			name: 'moduleDescription',
+			message: 'What is your module description?',
+			default: `My ${superb()} module`
+		}, {
 			name: 'githubUsername',
 			message: 'What is your GitHub username?',
 			store: true,
@@ -77,6 +81,7 @@ module.exports = class extends yeoman.Base {
 
 			const tpl = {
 				moduleName: props.moduleName,
+				moduleDescription: props.moduleDescription,
 				camelModuleName: _s.camelize(repoName),
 				githubUsername: this.options.org || props.githubUsername,
 				repoName,
@@ -84,7 +89,6 @@ module.exports = class extends yeoman.Base {
 				email: this.user.git.email(),
 				website: props.website,
 				humanizedWebsite: humanizeUrl(props.website),
-				superb: superb(),
 				cli,
 				nyc,
 				coveralls

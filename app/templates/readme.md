@@ -1,6 +1,6 @@
 # <%= repoName %> [![Build Status](https://travis-ci.org/<%= githubUsername %>/<%= repoName %>.svg?branch=master)](https://travis-ci.org/<%= githubUsername %>/<%= repoName %>)<% if (coveralls) { %> [![Coverage Status](https://coveralls.io/repos/github/<%= githubUsername %>/<%= repoName %>/badge.svg?branch=master)](https://coveralls.io/github/<%= githubUsername %>/<%= repoName %>?branch=master)<% } %>
 
-> My <%= superb %> module
+> <%= moduleDescription %>
 
 
 ## Install
