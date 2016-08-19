@@ -35,7 +35,7 @@ module.exports = class extends yeoman.Base {
 			name: 'moduleName',
 			message: 'What do you want to name your module?',
 			default: _s.slugify(this.appname),
-			filter: x => moduleName.slugify(x)
+			filter: x => _s.slugify(x)
 		}, {
 			name: 'moduleDescription',
 			message: 'What is your module description?',
