@@ -1,6 +1,6 @@
 const _s = require('underscore.string');
 
-const scopedRegex = /^(?:@([^/]+?)[/])?([^/]+?)$/;
+const scopedRegex = /^(?:@([^/]+?)[/])([^/]+?)$/;
 
 exports.isScoped = name => scopedRegex.test(name);
 exports.repoName = name => exports.isScoped(name) ? name.match(scopedRegex)[2] : name;
