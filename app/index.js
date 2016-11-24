@@ -103,7 +103,7 @@ module.exports = class extends yeoman.Base {
 				'!**/cli.js'
 			], this.destinationPath(), tpl);
 
-			if (props.cli) {
+			if (cli) {
 				this.fs.copyTpl(this.templatePath('cli.js'), this.destinationPath('cli.js'), tpl);
 			}
 
