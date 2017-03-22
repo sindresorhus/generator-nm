@@ -3,7 +3,7 @@ import test from 'ava';
 import helpers from 'yeoman-test';
 import assert from 'yeoman-assert';
 import pify from 'pify';
-import moduleName from './app/module-name';
+import utils from './app/utils';
 
 let generator;
 
@@ -99,9 +99,9 @@ test.serial('coveralls option', async () => {
 });
 
 test('parse scoped package names', t => {
-	t.is(moduleName.slugify('author/thing'), 'author-thing', 'slugify non-scoped packages');
-	t.is(moduleName.slugify('@author/thing'), '@author/thing', 'accept scoped packages');
-	t.is(moduleName.slugify('@author/hi/there'), 'author-hi-there', 'fall back to regular slugify if invalid scoped name');
+	t.is(utils.slugifyPackageName('author/thing'), 'author-thing', 'slugify non-scoped packages');
+	t.is(utils.slugifyPackageName('@author/thing'), '@author/thing', 'accept scoped packages');
+	t.is(utils.slugifyPackageName('@author/hi/there'), 'author-hi-there', 'fall back to regular slugify if invalid scoped name');
 });
 
 test.serial('prompts for description', async () => {
