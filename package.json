@@ -4,6 +4,7 @@
   "description": "Scaffold out a node module",
   "license": "MIT",
   "repository": "sindresorhus/generator-nm",
+  "preferGlobal": true,
   "author": {
     "name": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
