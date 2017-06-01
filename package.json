@@ -41,9 +41,9 @@
   },
   "devDependencies": {
     "ava": "*",
-    "pify": "^2.2.0",
+    "pify": "^3.0.0",
     "xo": "*",
-    "yeoman-assert": "^2.0.0",
+    "yeoman-assert": "^3.0.0",
     "yeoman-test": "^1.0.0"
   },
   "ava": {
