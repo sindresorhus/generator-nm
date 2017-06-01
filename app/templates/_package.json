@@ -29,10 +29,10 @@
     "meow": "^3.7.0"
   <% } %>},
   "devDependencies": {
-    "ava": "^0.17.0",<% if (coveralls) { %>
+    "ava": "^0.19.1",<% if (coveralls) { %>
     "coveralls": "^2.11.12",<% } %><% if (nyc) { %>
     "nyc": "^10.0.0",<% } %>
-    "xo": "^0.17.0"
+    "xo": "^0.18.2"
   }<% if (coveralls) { %>,
   "nyc": {
     "reporter": [
