@@ -32,7 +32,8 @@ test.serial('generates expected files', async () => {
 		'license',
 		'package.json',
 		'readme.md',
-		'test.js'
+		'test.js',
+		'.npmrc'
 	]);
 
 	assert.noFile('cli.js');
