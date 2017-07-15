@@ -1,4 +1,4 @@
-# <%= repoName %> [![Build Status](https://travis-ci.org/<%= githubUsername %>/<%= repoName %>.svg?branch=master)](https://travis-ci.org/<%= githubUsername %>/<%= repoName %>)<% if (coveralls) { %> [![Coverage Status](https://coveralls.io/repos/github/<%= githubUsername %>/<%= repoName %>/badge.svg?branch=master)](https://coveralls.io/github/<%= githubUsername %>/<%= repoName %>?branch=master)<% } %>
+# <%= repoName %> [![Build Status](https://travis-ci.org/<%= githubUsername %>/<%= repoName %>.svg?branch=master)](https://travis-ci.org/<%= githubUsername %>/<%= repoName %>)<% if (codecov) { %> [![codecov](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>/badge.svg?branch=master)](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>?branch=master)<% } %>
 
 > <%= moduleDescription %>
 

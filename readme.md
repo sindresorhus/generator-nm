@@ -39,10 +39,10 @@ $ yo nm --help
     --org           # Publish to a GitHub organization account
     --cli           # Add a CLI
     --coverage      # Add code coverage with nyc
-    --coveralls     # Upload coverage to coveralls.io (implies --coverage)
+    --codecov       # Upload coverage to codecov.io (implies --coverage)
 ```
 
-The `--org` option takes a string value (i.e. `--org=avajs`). All others are boolean flags and can be negated with the `no` prefix (i.e. `--no-coveralls`). You will be prompted for any options not passed on the command-line.
+The `--org` option takes a string value (i.e. `--org=avajs`). All others are boolean flags and can be negated with the `no` prefix (i.e. `--no-codecov`). You will be prompted for any options not passed on the command-line.
 
 
 ## Tip
