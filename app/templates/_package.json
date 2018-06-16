@@ -11,7 +11,7 @@
 	},<% if (cli) { %>
 	"bin": "cli.js",<% } %>
 	"engines": {
-		"node": ">=4"
+		"node": ">=6"
 	},
 	"scripts": {
 		"test": "xo && <% if (nyc) { %>nyc <% } %>ava"
@@ -26,13 +26,13 @@
 		""
 	],
 	"dependencies": {<% if (cli) { %>
-		"meow": "^3.7.0"
+		"meow": "^5.0.0"
 	<% } %>},
 	"devDependencies": {
-		"ava": "^0.20.0",<% if (codecov) { %>
-		"codecov": "^2.2.0",<% } %><% if (nyc) { %>
-		"nyc": "^11.0.0",<% } %>
-		"xo": "^0.18.2"
+		"ava": "^0.25.0",<% if (codecov) { %>
+		"codecov": "^3.0.0",<% } %><% if (nyc) { %>
+		"nyc": "^12.0.0",<% } %>
+		"xo": "^0.21.0"
 	}<% if (codecov) { %>,
 	"nyc": {
 		"reporter": [
