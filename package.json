@@ -34,14 +34,14 @@
 	"dependencies": {
 		"humanize-url": "^1.0.1",
 		"is-scoped": "^1.0.0",
-		"normalize-url": "^2.0.0",
-		"superb": "^2.0.0",
+		"normalize-url": "^3.3.0",
+		"superb": "^3.0.0",
 		"underscore.string": "^3.0.3",
-		"yeoman-generator": "^2.0.5"
+		"yeoman-generator": "^3.1.1"
 	},
 	"devDependencies": {
 		"ava": "*",
-		"pify": "^3.0.0",
+		"pify": "^4.0.1",
 		"xo": "*",
 		"yeoman-assert": "^3.0.0",
 		"yeoman-test": "^1.0.0"
