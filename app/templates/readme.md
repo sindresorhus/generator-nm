@@ -67,4 +67,4 @@ $ <%= repoName %> --help
 
 ## License
 
-MIT © [<%= name %>](<%= website %>)
+[MIT](license) © [<%= name %>](<%= website %>)
