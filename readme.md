@@ -6,27 +6,25 @@ Optionally with a [CLI](http://en.wikipedia.org/wiki/Command-line_interface).
 
 This is what I use for [my own modules](https://www.npmjs.com/~sindresorhus).
 
-![](screenshot.png)
-
+![Example usage](screenshot.png)
 
 ## Install
 
-```
+```sh
 $ npm install --global yo generator-nm
 ```
-
 
 ## Usage
 
 With [yo](https://github.com/yeoman/yo):
 
-```
+```sh
 $ yo nm
 ```
 
 There are multiple command-line options available:
 
-```
+```sh
 $ yo nm --help
 
   Usage:
@@ -44,11 +42,9 @@ $ yo nm --help
 
 The `--org` option takes a string value (i.e. `--org=avajs`). All others are boolean flags and can be negated with the `no` prefix (i.e. `--no-codecov`). You will be prompted for any options not passed on the command-line.
 
-
 ## Tip
 
 Use [chalk](https://github.com/sindresorhus/chalk) if you want colors in your CLI.
-
 
 ## License
 

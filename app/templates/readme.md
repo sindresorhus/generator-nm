@@ -2,13 +2,11 @@
 
 > <%= moduleDescription %>
 
-
 ## Install
 
-```
+```sh
 $ npm install <%= moduleName %>
 ```
-
 
 ## Usage
 
@@ -18,7 +16,6 @@ const <%= camelModuleName %> = require('<%= moduleName %>');
 <%= camelModuleName %>('unicorns');
 //=> 'unicorns & rainbows'
 ```
-
 
 ## API
 
@@ -41,14 +38,13 @@ Default: `false`
 
 Lorem ipsum.<% if (cli) { %>
 
-
 ## CLI
 
-```
+```sh
 $ npm install --global <%= moduleName %>
 ```
 
-```
+````sh
 $ <%= repoName %> --help
 
   Usage
@@ -68,3 +64,4 @@ $ <%= repoName %> --help
 ## License
 
 MIT © [<%= name %>](<%= website %>)
+````
