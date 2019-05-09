@@ -32,7 +32,7 @@ Lorem ipsum.
 
 #### options
 
-Type: `Object`
+Type: `object`
 
 ##### foo
 

@@ -71,7 +71,7 @@ module.exports = class extends Generator {
 			type: 'confirm',
 			default: false,
 			when: x => (x.nyc || this.options.coverage) && (this.options.codecov === undefined)
-		}]).then(props => {
+		}]).then(props => { // eslint-disable-line promise/prefer-await-to-then
 			const or = (option, prop) => this.options[option] === undefined ? props[prop || option] : this.options[option];
 
 			const cli = or('cli');
