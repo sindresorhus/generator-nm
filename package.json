@@ -52,6 +52,15 @@
 	"xo": {
 		"ignores": [
 			"app/templates/**"
-		]
+		],
+		"rules": {
+			"comma-dangle": [
+				"error",
+				"always-multiline"
+			],
+			"object-curly-spacing": [
+				"off"
+			]
+		}
 	}
 }
