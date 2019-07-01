@@ -29,9 +29,9 @@
 		"meow": "^5.0.0"
 	<% } %>},
 	"devDependencies": {
-		"ava": "^1.4.1",<% if (codecov) { %>
-		"codecov": "^3.4.0",<% } %><% if (nyc) { %>
-		"nyc": "^14.1.0",<% } %>
+		"ava": "^2.1.0",<% if (codecov) { %>
+		"codecov": "^3.5.0",<% } %><% if (nyc) { %>
+		"nyc": "^14.1.1",<% } %>
 		"xo": "^0.24.0"
 	}<% if (codecov) { %>,
 	"nyc": {

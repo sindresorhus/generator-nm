@@ -22,7 +22,7 @@ const <%= camelModuleName %> = require('<%= moduleName %>');
 
 ## API
 
-### <%= camelModuleName %>(input, [options])
+### <%= camelModuleName %>(input, options?)
 
 #### input
 
@@ -63,8 +63,3 @@ $ <%= repoName %> --help
     $ <%= repoName %> ponies
     ponies & rainbows
 ```<% } %>
-
-
-## License
-
-MIT © [<%= name %>](<%= website %>)

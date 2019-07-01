@@ -48,8 +48,3 @@ The `--org` option takes a string value (i.e. `--org=avajs`). All others are boo
 ## Tip
 
 Use [chalk](https://github.com/sindresorhus/chalk) if you want colors in your CLI.
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
