@@ -36,7 +36,7 @@ Type: `object`
 
 ##### foo
 
-Type: `boolean`<br>
+Type: `boolean`\
 Default: `false`
 
 Lorem ipsum.<% if (cli) { %>
