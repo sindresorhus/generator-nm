@@ -1,7 +1,6 @@
 'use strict';
 const superb = require('superb');
 const normalizeUrl = require('normalize-url');
-const humanizeUrl = require('humanize-url');
 const Generator = require('yeoman-generator');
 const _s = require('underscore.string');
 const utils = require('./utils');
@@ -89,7 +88,7 @@ module.exports = class extends Generator {
 				name: this.user.git.name(),
 				email: this.user.git.email(),
 				website: props.website,
-				humanizedWebsite: humanizeUrl(props.website),
+				normalizedWebsite: normalizeUrl(props.website),
 				cli,
 				nyc,
 				codecov
