@@ -9,8 +9,7 @@
 		"email": "<%= email %>",
 		"url": "<%= normalizedWebsite %>"
 	},<% if (cli) { %>
-	"bin": "cli.js",<%
-	} %>
+	"bin": "cli.js",<% } %>
 	"engines": {
 		"node": ">=8"
 	},
@@ -19,33 +18,26 @@
 	},
 	"files": [
 		"index.js"<% if (cli) { %>,
-			"cli.js"<%
-		} %>
+		"cli.js"<% } %>
 	],
 	"keywords": [<% if (cli) { %>
 		"cli-app",
-			"cli",<%
-		} %>
+		"cli",<% } %>
 		""
 	],
 	"dependencies": {<% if (cli) { %>
 		"meow": "^5.0.0"
-	<%
-		} %>
-	},
+	<% } %>},
 	"devDependencies": {
 		"ava": "^2.1.0",<% if (codecov) { %>
-		"codecov": "^3.5.0",<%
-		} %><% if (nyc) { %>
-		"nyc": "^14.1.1",<%
-		} %>
+		"codecov": "^3.5.0",<% } %><% if (nyc) { %>
+		"nyc": "^14.1.1",<% } %>
 		"xo": "^0.24.0"
 	}<% if (codecov) { %>,
-		"nyc": {
-			"reporter": [
-				"lcov",
-				"text"
-			]
-		}<%
-	} %>
+	"nyc": {
+		"reporter": [
+			"lcov",
+			"text"
+		]
+	}<% } %>
 }
