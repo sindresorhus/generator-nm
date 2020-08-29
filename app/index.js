@@ -88,7 +88,6 @@ module.exports = class extends Generator {
 				name: this.user.git.name(),
 				email: this.user.git.email(),
 				website: props.website,
-				normalizedWebsite: props.website,
 				cli,
 				nyc,
 				codecov
