@@ -1,14 +1,12 @@
-# <%= repoName %> [![Build Status](https://travis-ci.com/<%= githubUsername %>/<%= repoName %>.svg?branch=master)](https://travis-ci.com/<%= githubUsername %>/<%= repoName %>)<% if (codecov) { %> [![codecov](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>/badge.svg?branch=master)](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>?branch=master)<% } %>
+# <%= repoName %> [![Build Status](https://travis-ci.com/<%= githubUsername %>/<%= repoName %>.svg?branch=master)](https://travis-ci.com/github/<%= githubUsername %>/<%= repoName %>)<% if (codecov) { %> [![codecov](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>/badge.svg?branch=master)](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>?branch=master)<% } %>
 
 > <%= moduleDescription %>
-
 
 ## Install
 
 ```
 $ npm install <%= moduleName %>
 ```
-
 
 ## Usage
 
@@ -18,7 +16,6 @@ const <%= camelModuleName %> = require('<%= moduleName %>');
 <%= camelModuleName %>('unicorns');
 //=> 'unicorns & rainbows'
 ```
-
 
 ## API
 
@@ -40,7 +37,6 @@ Type: `boolean`\
 Default: `false`
 
 Lorem ipsum.<% if (cli) { %>
-
 
 ## CLI
 

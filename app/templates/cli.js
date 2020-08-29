@@ -15,6 +15,12 @@ const cli = meow(`
 	  unicorns & rainbows
 	  $ <%= repoName %> ponies
 	  ponies & rainbows
-`);
+`, {
+	flags: {
+		foo: {
+			type: 'boolean'
+		}
+	}
+});
 
 console.log(<%= camelModuleName %>(cli.input[0] || 'unicorns'));
