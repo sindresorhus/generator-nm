@@ -1,4 +1,4 @@
-# generator-nm [![Build Status](https://travis-ci.org/sindresorhus/generator-nm.svg?branch=master)](https://travis-ci.org/sindresorhus/generator-nm)
+# generator-nm [![Build Status](https://travis-ci.com/sindresorhus/generator-nm.svg?branch=master)](https://travis-ci.com/github/sindresorhus/generator-nm)
 
 > Scaffold out a [node module](https://github.com/sindresorhus/node-module-boilerplate)
 
@@ -8,13 +8,11 @@ This is what I use for [my own modules](https://www.npmjs.com/~sindresorhus).
 
 ![](screenshot.png)
 
-
 ## Install
 
 ```
 $ npm install --global yo generator-nm
 ```
-
 
 ## Usage
 
@@ -43,7 +41,6 @@ $ yo nm --help
 ```
 
 The `--org` option takes a string value (i.e. `--org=avajs`). All others are boolean flags and can be negated with the `no` prefix (i.e. `--no-codecov`). You will be prompted for any options not passed on the command-line.
-
 
 ## Tip
 
