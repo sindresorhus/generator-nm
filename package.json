@@ -7,7 +7,7 @@
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
+		"url": "https://sindresorhus.com"
 	},
 	"engines": {
 		"node": ">=8"
@@ -32,7 +32,6 @@
 		"sindre"
 	],
 	"dependencies": {
-		"humanize-url": "^2.1.0",
 		"is-scoped": "^2.1.0",
 		"normalize-url": "^4.3.0",
 		"superb": "^4.0.0",
