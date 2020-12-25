@@ -27,13 +27,13 @@ test.serial('generates expected files', async () => {
 		'.git',
 		'.gitattributes',
 		'.gitignore',
-		'.travis.yml',
 		'index.js',
 		'license',
 		'package.json',
 		'readme.md',
 		'test.js',
-		'.npmrc'
+		'.npmrc',
+		'.github/workflows/main.yml'
 	]);
 
 	assert.noFile('cli.js');
@@ -74,7 +74,7 @@ test.serial('nyc option', async () => {
 	assert.fileContent('package.json', /"nyc": "/);
 	assert.noFileContent('package.json', /"codecov":/);
 	assert.noFileContent('package.json', /"lcov"/);
-	assert.noFileContent('.travis.yml', /codecov/);
+	assert.noFileContent('.github/workflows/main.yml', /codecov/);
 });
 
 test.serial('codecov option', async () => {
@@ -96,7 +96,7 @@ test.serial('codecov option', async () => {
 	assert.fileContent('package.json', /"nyc": "/);
 	assert.fileContent('package.json', /"codecov":/);
 	assert.fileContent('package.json', /"lcov"/);
-	assert.fileContent('.travis.yml', /codecov/);
+	assert.fileContent('.github/workflows/main.yml', /codecov/);
 });
 
 test('parse scoped package names', t => {
