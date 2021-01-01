@@ -1,6 +1,6 @@
 {
 	"name": "generator-nm",
-	"version": "6.1.0",
+	"version": "6.1.1",
 	"description": "Scaffold out a node module",
 	"license": "MIT",
 	"repository": "sindresorhus/generator-nm",
