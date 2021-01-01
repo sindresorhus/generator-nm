@@ -1,4 +1,4 @@
-# generator-nm [![Build Status](https://travis-ci.com/sindresorhus/generator-nm.svg?branch=master)](https://travis-ci.com/github/sindresorhus/generator-nm)
+# generator-nm
 
 > Scaffold out a [node module](https://github.com/sindresorhus/node-module-boilerplate)
 
