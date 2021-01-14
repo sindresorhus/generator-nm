@@ -1,4 +1,4 @@
-# <%= repoName %><% if (codecov) { %> [![codecov](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>/badge.svg?branch=main)](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>?branch=main)<% } %>
+# <%= repoName %><% if (codecov) { %> [![Coverage Status](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>/badge.svg?branch=main)](https://codecov.io/gh/<%= githubUsername %>/<%= repoName %>?branch=main)<% } %>
 
 > <%= moduleDescription %>
 
@@ -11,7 +11,7 @@ $ npm install <%= moduleName %>
 ## Usage
 
 ```js
-const <%= camelModuleName %> = require('<%= moduleName %>');
+import <%= camelModuleName %> from '<%= moduleName %>';
 
 <%= camelModuleName %>('unicorns');
 //=> 'unicorns & rainbows'

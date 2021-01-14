@@ -1,5 +1,5 @@
 import test from 'ava';
-import <%= camelModuleName %> from '.';
+import <%= camelModuleName %> from './index.js';
 
 test('title', t => {
 	t.throws(() => {

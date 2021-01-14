@@ -8,10 +8,11 @@
 		"name": "<%= name %>",
 		"email": "<%= email %>",
 		"url": "<%= website %>"
-	},<% if (cli) { %>
-	"bin": "cli.js",<% } %>
+	},
+	"type": "module",<% if (cli) { %>
+	"bin": "cli.js",<% } else { %>"exports": "./index.js",<% } %>
 	"engines": {
-		"node": ">=10"
+		"node": ">=12"
 	},
 	"scripts": {
 		"test": "xo && <% if (nyc) { %>nyc <% } %>ava"
@@ -26,18 +27,18 @@
 		""
 	],
 	"dependencies": {<% if (cli) { %>
-		"meow": "^8.1.0"
+		"meow": "^9.0.0"
 	<% } %>},
 	"devDependencies": {
-		"ava": "^2.4.0",<% if (codecov) { %>
+		"ava": "^3.15.0",<% if (codecov) { %>
 		"codecov": "^3.7.2",<% } %><% if (nyc) { %>
 		"nyc": "^15.1.0",<% } %>
-		"xo": "^0.36.0"
+		"xo": "^0.37.0"
 	}<% if (codecov) { %>,
 	"nyc": {
 		"reporter": [
-			"lcov",
-			"text"
+			"text",
+			"lcov"
 		]
 	}<% } %>
 }
