@@ -1,7 +1,0 @@
-language: node_js
-node_js:
-  - '14'
-  - '12'
-  - '10'<% if (codecov) { %>
-after_script:
-  - './node_modules/.bin/nyc report --reporter=text-lcov > coverage.lcov && ./node_modules/.bin/codecov'<% } %>
