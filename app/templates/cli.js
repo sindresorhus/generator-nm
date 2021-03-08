@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-'use strict';
-const meow = require('meow');
-const <%= camelModuleName %> = require('.');
+import meow from 'meow';
+import <%= camelModuleName %> from './index.js';
 
 const cli = meow(`
 	Usage
