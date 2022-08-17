@@ -6,7 +6,7 @@ test('title', t => {
 		<%= camelModuleName %>(123);
 	}, {
 		instanceOf: TypeError,
-		message: 'Expected a string, got number'
+		message: 'Expected a string, got number',
 	});
 
 	t.is(<%= camelModuleName %>('unicorns'), 'unicorns & rainbows');

@@ -4,8 +4,8 @@
 
 ## Install
 
-```
-$ npm install <%= moduleName %>
+```sh
+npm install <%= moduleName %>
 ```
 
 ## Usage
@@ -31,17 +31,17 @@ Lorem ipsum.
 
 Type: `object`
 
-##### foo
+##### postfix
 
-Type: `boolean`\
-Default: `false`
+Type: `string`\
+Default: `'rainbows'`
 
 Lorem ipsum.<% if (cli) { %>
 
 ## CLI
 
-```
-$ npm install --global <%= moduleName %>
+```sh
+npm install --global <%= moduleName %>
 ```
 
 ```

@@ -22,4 +22,4 @@ const cli = meow(`
 	}
 });
 
-console.log(<%= camelModuleName %>(cli.input[0] || 'unicorns'));
+console.log(<%= camelModuleName %>(cli.input[0] ?? 'unicorns'));
