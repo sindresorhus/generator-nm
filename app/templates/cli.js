@@ -15,6 +15,7 @@ const cli = meow(`
 	  $ <%= repoName %> ponies
 	  ponies & rainbows
 `, {
+	importaMeta: import.meta,
 	flags: {
 		foo: {
 			type: 'boolean'

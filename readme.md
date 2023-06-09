@@ -10,16 +10,16 @@ This is what I use for [my own modules](https://www.npmjs.com/~sindresorhus).
 
 ## Install
 
-```
-$ npm install --global yo generator-nm
+```sh
+npm install --global yo generator-nm
 ```
 
 ## Usage
 
 With [yo](https://github.com/yeoman/yo):
 
-```
-$ yo nm
+```sh
+yo nm
 ```
 
 There are multiple command-line options available:

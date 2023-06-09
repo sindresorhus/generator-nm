@@ -11,7 +11,7 @@
 		"url": "https://sindresorhus.com"
 	},
 	"engines": {
-		"node": ">=10"
+		"node": ">=16"
 	},
 	"scripts": {
 		"test": "xo && ava test.js"
@@ -42,7 +42,7 @@
 	"devDependencies": {
 		"ava": "^2.4.0",
 		"pify": "^5.0.0",
-		"xo": "^0.33.0",
+		"xo": "^0.54.2",
 		"yeoman-assert": "^3.1.1",
 		"yeoman-test": "^2.0.0"
 	},
@@ -52,6 +52,9 @@
 	"xo": {
 		"ignores": [
 			"app/templates/**"
-		]
+		],
+		"rules": {
+			"unicorn/prefer-module": "off"
+		}
 	}
 }

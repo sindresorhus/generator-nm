@@ -1,9 +1,9 @@
-import path from 'path';
+import path from 'node:path';
 import test from 'ava';
 import helpers from 'yeoman-test';
 import assert from 'yeoman-assert';
 import pify from 'pify';
-import utils from './app/utils';
+import utils from './app/utils.js';
 
 let generator;
 
@@ -17,7 +17,7 @@ test.serial('generates expected files', async () => {
 		moduleName: 'test',
 		githubUsername: 'test',
 		website: 'test.com',
-		cli: false
+		cli: false,
 	});
 
 	await pify(generator.run.bind(generator))();
@@ -33,7 +33,7 @@ test.serial('generates expected files', async () => {
 		'readme.md',
 		'test.js',
 		'.npmrc',
-		'.github/workflows/main.yml'
+		'.github/workflows/main.yml',
 	]);
 
 	assert.noFile('cli.js');
@@ -44,7 +44,7 @@ test.serial('CLI option', async () => {
 		moduleName: 'test',
 		githubUsername: 'test',
 		website: 'test.com',
-		cli: true
+		cli: true,
 	});
 
 	await pify(generator.run.bind(generator))();
@@ -62,7 +62,7 @@ test.serial('nyc option', async () => {
 		website: 'test.com',
 		cli: false,
 		nyc: true,
-		codecov: false
+		codecov: false,
 	});
 
 	await pify(generator.run.bind(generator))();
@@ -84,7 +84,7 @@ test.serial('codecov option', async () => {
 		website: 'test.com',
 		cli: false,
 		nyc: true,
-		codecov: true
+		codecov: true,
 	});
 
 	await pify(generator.run.bind(generator))();
@@ -113,7 +113,7 @@ test.serial('prompts for description', async () => {
 		website: 'test.com',
 		cli: false,
 		nyc: true,
-		codecov: true
+		codecov: true,
 	});
 
 	await pify(generator.run.bind(generator))();
@@ -129,7 +129,7 @@ test.serial('defaults to superb description', async () => {
 		website: 'test.com',
 		cli: false,
 		nyc: true,
-		codecov: true
+		codecov: true,
 	});
 
 	await pify(generator.run.bind(generator))();
