@@ -10,7 +10,7 @@
 		"url": "<%= website %>"
 	},
 	"type": "module",<% if (cli) { %>
-	"bin": "cli.js",<% } else { %>"exports": "./index.js",<% } %>
+	"bin": "./cli.js",<% } else { %>"exports": "./index.js",<% } %>
 	"engines": {
 		"node": ">=16"
 	},
