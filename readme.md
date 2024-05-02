@@ -1,3 +1,6 @@
+> [!IMPORTANT]
+> Deprecated. Just use [this boilerplate](https://github.com/sindresorhus/node-module-boilerplate) instead.
+
 # generator-nm
 
 > Scaffold out a [node module](https://github.com/sindresorhus/node-module-boilerplate)
